@@ -7,7 +7,7 @@ class GetHistory:
         self: "crunpyroll.Client",
         *,
         locale: str = None,
-    ) -> "types.EpisodesQuery":
+    ) -> "types.HistoryQuery":
         """
         Get list of seasons from a series.
 
@@ -17,8 +17,8 @@ class GetHistory:
                 Default to the one used in Client.
                 
         Returns:
-            :obj:`~crunpyroll.types.EpisodesQuery`:
-                On success, query of episodes is returned.
+            :obj:`~crunpyroll.types.HistoryQuery`:
+                On success, query of watch history.
         """
         await self.session.retrieve()
 
