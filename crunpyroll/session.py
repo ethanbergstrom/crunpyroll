@@ -21,6 +21,7 @@ class Session:
         self.access_token: str = None
         self.refresh_token: str = None
         self.expiration: datetime = None
+        self.account_id: str = None
 
     @property
     def is_authorized(self):
@@ -59,6 +60,7 @@ class Session:
         self.expiration = get_date() + timedelta(
             seconds=response.get("expires_in")
         )
+        self.account_id = response.get("account_id")
         return True
     
     async def refresh(self) -> Optional[bool]:
